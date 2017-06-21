@@ -1,0 +1,35 @@
+.contenedor{
+    height: calc (100vh - 244px);
+    overflow: auto;
+}
+.principal{
+    margin-bottom: 0px;
+    height: 628px;
+    overflow: auto;
+    border: solid 1px #080808;
+    background: white;
+}
+.divFooter{
+    background:  #2C2C2C;
+    color: white;
+    margin-top: 50px;
+}
+.parrafo{
+    font-family: serif;
+    font-size: 20px;
+    font-size: 20px;
+}
+.centro{
+    text-align: center;
+    font-family: Berlin Sans FB;
+    font-size: 18px;
+}
+
+.panelfondo{
+    border: solid black;    
+}
+.letra{
+    margin-top: 680px;
+    font-size: 20px;
+    font-family: serif;
+}

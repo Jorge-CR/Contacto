@@ -1,0 +1,92 @@
+<div class="container-fluid ">
+   
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1>Agenda Telefonica</h1>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right buscar">
+                    <li class="dropdown">
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input ng-model="contactoBuscar.textobuscar" type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <a href="#!/buscar"><button ng-click="buscar()" type="submit" class="btn btn-default">Buscar</button></a>
+                            <a href="#!/agregar"><button type="submit" class="btn btn-default">Agregar</button></a>
+                            <a href="#!/logout" class="btn btn-default">Logout</a>
+                        </form> 
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>   
+    <div class="panel panel-default"> 
+    <div class="panel-body col-lg-offset-1 col-lg-10" style="margin-top: 20px;">
+        <div class="container-fluid contenedor">
+            <div class="table-bordered table-responsive principal">
+                <table class="table">
+                    <tr>
+                        <th>foto</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr ng-repeat="contacto in contactos">
+                        <td>{{contacto.con_foto}}</td>
+                        <td>{{contacto.con_nombre}}</td>
+                        <td>{{contacto.con_apellidos}}</td>
+                        <td>{{contacto.con_correo}}</td>
+                        <td>{{contacto.con_telefono}}</td>
+
+
+                        <td><i ng-click="editar(contacto)" title="Editar" class="glyphicon glyphicon-pencil iconoTabla"></i>
+                            <i ng-click="eliminar(contacto)" class="glyphicon glyphicon-trash"></i></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- MODAL ELIMINAR COLABORADOR-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" id="eliminarContacto" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>
+                    Eliminar Contacto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" ng-show="usuarioEliminado">
+                    <center>Usuario Eliminado</center>
+                </div>
+                <center>
+                    <h4>Esta seguro?</h4>
+                    <p>Se va a eliminar el Usuario</p>
+                    <h3>{{nombre}}</h3>
+                </center>
+                <button ng-click="submitEliminarContacto()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  ng-include="'app/template/partial/footer.html'"></div>
+
+
+
+
